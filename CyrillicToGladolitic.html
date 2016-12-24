@@ -51,6 +51,9 @@
 			var currentChar = arrayOfUnicode[i].toString(16);
 			console.log("current Character: " + currentChar)
 			switch (currentChar) {
+				case "20":
+				finalString += "\u007c";
+				break;
 				case "410":
 				case "430":
 				case "4d0":
