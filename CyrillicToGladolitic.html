@@ -20,7 +20,10 @@
 	var arrayOfUnicode = [];
 	var GlagoliticString;
 	
-	
+	/* Special Thanks to Bobince for help with this Function
+	StackOverflow Page: 	http://stackoverflow.com/questions/21397316/split-javascript-string-into-array-of-codepoints-taking-into-account-surrogat
+	User: 			http://stackoverflow.com/users/18936/bobince
+	*/			
 	toUnicodeChars = function(String1){
 		characters = [];
 		for (var i = 0; i < String1.length; i ++){
