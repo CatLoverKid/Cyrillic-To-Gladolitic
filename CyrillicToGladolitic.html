@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>Cyrillic to Gladolitic Translator</title>
+	<style>
+		body{
+			background-color: #EEEEEE
+		}
+		h1 {
+			font-family: verdana;
+			color: #666666;
+		}
+		p{
+			color: #222222;
+		}
+	</style>
+	<script>
+	var outputField = document.getElementById("outputTextBox");
+	var button = document.getElementById("translateButton");
+	var cyrillicString;
+	var arrayOfUnicode = [];
+	var GlagoliticString;
+	
+	
+	toUnicodeChars = function(String1){
+		characters = [];
+		for (var i = 0; i < String1.length; i ++){
+			var char1 = String1.charCodeAt(i);
+			if(char1 >= 0xD800 && char1 < 0xDC00 && i+1< String1.length){
+				var char2 = String1.charCodeAt(i+1);
+				if(char2 >= 0xDC00 && char2 < 0xE000){
+					characters.push(0x10000 + ((char1-0xD800) << 10) + (char2 - 0xDC00));
+					i++
+					continue;
+				}
+			}
+			characters.push(char1);
+		}
+		return characters;
+	}
+	
+	
+	function translateFunction(){
+		cyrillicString = document.getElementById('inputTextBox').value;
+		arrayOfUnicode = toUnicodeChars(cyrillicString);
+		console.log(arrayOfUnicode);
+	}
+	</script>
+</head>
+<body>
+	<div align="center">
+		<h1>
+			Cyrillic to Glagolitic Translator
+		</h1>
+		<br>
+		<p>
+			Enter text below, then hit TRANSLATE to translate characters <br>
+			NOTE: This does not translate the meaning of the word, only the characters, the meaning will be lost in translation
+		</p>
+		<input id="inputTextBox" type="text" placeholder="Input text here"></input>
+		<br><br>
+		<button id="translateButton" onclick="translateFunction()">Translate</button>
+		<p id="outputTextBox"></P>
+	</div>
+</body>
+</html>
