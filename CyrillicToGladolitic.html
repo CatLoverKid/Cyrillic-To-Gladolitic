@@ -14,11 +14,11 @@
 		}
 	</style>
 	<script>
-	var outputField = document.getElementById("outputTextBox");
+		var outputField = document.getElementById("outputTextBox");
 	var button = document.getElementById("translateButton");
 	var cyrillicString;
 	var arrayOfUnicode = [];
-	var GlagoliticString;
+	var glagoliticString;
 	
 	/* Special Thanks to Bobince for help with this Function
 	StackOverflow Page: 	http://stackoverflow.com/questions/21397316/split-javascript-string-into-array-of-codepoints-taking-into-account-surrogat
@@ -45,7 +45,229 @@
 	function translateFunction(){
 		cyrillicString = document.getElementById('inputTextBox').value;
 		arrayOfUnicode = toUnicodeChars(cyrillicString);
-		console.log(arrayOfUnicode);
+		finalString = "";
+		console.log("Total Length: " + arrayOfUnicode.length)
+		for(i = 0; i < arrayOfUnicode.length; i++){
+			var currentChar = arrayOfUnicode[i].toString(16);
+			console.log("current Character: " + currentChar)
+			switch (currentChar) {
+				case "410":
+				case "430":
+				case "4d0":
+				case "4d1":
+				case "4d2":
+				case "4d3":
+					finalString += "\u2c00";
+					break;
+				case "411":
+				case "431":
+					finalString += "\u2c01"
+					break;
+				case "412":
+				case "432":
+					finalString += "\u2c02"
+					break;
+				case "403":
+				case "413":
+				case "433":
+				case "453":
+				case "490":
+				case "491":
+					finalString += "\u2c03"
+					break;
+				case "414":
+				case "434":
+					finalString += "\u2c04"
+					break;
+				case "400":
+				case "401":
+				case "404":
+				case "42d":
+				case "435":
+				case "44d":
+				case "450":
+				case "451":
+				case "454":
+				case "4d6":
+				case "4d7":
+					finalString += "\u2c05"
+					break;
+				case "416":
+				case "436":
+					finalString += "\u2c06"
+					break;
+				case "405":
+				case "455":
+					finalString += "\u2c07"
+					break;
+				case "407":
+				case "437":
+				case "4de":
+				case "4df":
+					finalString += "\u2c08"
+					break;
+				case "40d":
+				case "418":
+				case "438":
+				case "45d":
+				case "4e2":
+				case "4e3":
+				case "4e4":
+				case "4e5":				
+					finalString += "\u2c09"
+					break;
+				case "419":
+				case "439":
+					finalString += "\u2c0a"
+					break;
+				case "406":
+				case "407":
+				case "456":
+				case "457":
+					finalString += "\u2c0b"
+					break;
+				case "40b":
+				case "45b":
+				case "402":
+				case "452":
+					finalString += "\u2c0c"
+					break;
+				case "40c":
+				case "41a":
+				case "43a":
+				case "45c":
+				case "45b":
+					finalString += "\u2c0d"
+					break;
+				case "41b":
+				case "43b":
+					finalString += "\u2c0e"
+					break;
+				case "41c":
+				case "43c":
+					finalString += "\u2c0f"
+					break;
+				case "41d":
+				case "43d":
+					finalString += "\u2c10"
+					break;
+				case "41e":
+				case "43e":
+				case "4e6":
+				case "4e7":
+					finalString += "\u2c11"
+					break;
+				case "41f":
+				case "43f":
+					finalString += "\u2c12"
+					break;
+				case "420":
+				case "440":
+					finalString += "\u2c13"
+					break;
+				case "421":
+				case "441":
+					finalString += "\u2c14"
+					break;
+				case "422":
+				case "442":
+					finalString += "\u2c15"
+					break;
+				case "40e":
+				case "423":
+				case "443":
+				case "45e":
+				case "4ee":
+				case "4ef":
+				case "4f0":
+				case "4f1":
+				case "4f2":
+				case "4f3":
+					finalString += "\u2c16"
+					break;
+				case "424":
+				case "444":
+					finalString += "\u2c17"
+					break;
+				case "425":
+				case "445":
+					finalString += "\u2c18"					
+					break;
+				case "460":
+				case "461":
+					finalString += "\u2c19"
+					break;
+				case "429":
+				case "449":
+					finalString += "\u2c1b"
+					break;
+				case "426":	
+				case "446":
+					finalString += "\u2c1c"
+					break;
+				case "427":
+				case "447":
+					finalString += "\u2c1d"
+					break;
+				case "428":
+				case "448":
+					finalString += "\u2c1e"
+					break;
+				case "42a":
+				case "44a":
+					finalString += "\u2c1f"
+					break;
+				case "42b":
+				case "44b":
+				case "4f8":
+				case "4f9":
+					finalString += "\u2c1f \u2c0a"
+					break;
+				case "42c":
+				case "44c":
+					finalString += "\u2c20"
+					break;
+				case "462":
+				case "463":
+					finalString += "\u2c21"
+					break;
+				case "42e":
+				case "44e":
+					finalString += "\u2c23"
+					break;
+				case "466":
+				case "467":
+				case "42f":
+				case "44f":
+					finalString += "\u2c23"
+					break;
+				case "468":
+				case "469":
+					finalString += "\u2c27"
+					break;
+				case "46a":
+				case "46b":
+					finalString += "\u2c28"
+					break;
+				case "46c":
+				case "46d":
+					finalString += "\u2c29"
+					break;
+				case "472":
+				case "473":
+					finalString += "\u2c2a"
+					break;
+				case "474":
+				case "475":
+				case "476":
+				case "477":
+					finalString += "\u2c2b"
+					break;					
+				default:
+					console.log("NO SUCH CHARACTER");
+			}
+		}
+		document.getElementById("outputTextBox").innerHTML = finalString;
 	}
 	</script>
 </head>
